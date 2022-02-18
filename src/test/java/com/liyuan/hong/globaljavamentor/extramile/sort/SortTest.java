@@ -19,11 +19,11 @@ public abstract class SortTest {
     @Parameterized.Parameters
     public static List<Object[]> data() {
         List<Object[]> data = new ArrayList<>();
-        data.add(new Object[]{getArr(10)});
-        data.add(new Object[]{getArr(50)});
-        data.add(new Object[]{getArr(100)});
-        data.add(new Object[]{getArr(200)});
-        data.add(new Object[]{getArr(500)});
+        data.add(new Object[]{getArrWithRandomInt(10)});
+        data.add(new Object[]{getArrWithRandomInt(50)});
+        data.add(new Object[]{getArrWithRandomInt(100)});
+        data.add(new Object[]{getArrWithRandomInt(200)});
+        data.add(new Object[]{getArrWithRandomInt(500)});
         return data;
     }
 
@@ -37,7 +37,7 @@ public abstract class SortTest {
         Assert.assertTrue(isSorted(res));
     }
 
-    private static int[] getArr(int limit) {
+    private static int[] getArrWithRandomInt(int limit) {
         int max = 1000;
         Random rd = new Random();
         return Stream.generate(() -> rd.nextInt(max)).limit(limit).mapToInt(x -> x).toArray();

@@ -10,16 +10,16 @@ public class MergeSort implements SortInterface{
         return res;
     }
 
-    public static int[] mergeSort(int[] arr, int l, int r) {
+    public static int[] mergeSort(int[] arr, int start, int end) {
         int[] res;
-        if (l == r) {
-            res = new int[]{arr[l]};
-        } else if (r - 1 == l) {
-            res = merge(new int[]{arr[r]}, new int[]{arr[l]});
+        if (start == end) {
+            res = new int[]{arr[start]};
+        } else if (end - 1 == start) {
+            res = merge(new int[]{arr[end]}, new int[]{arr[start]});
         } else {
-            int m1 = (r - l) / 2 + l;
-            int[] subArr1 = mergeSort(arr, l, m1);
-            int[] subArr2 = mergeSort(arr, m1 + 1, r);
+            int mid = (end - start) / 2 + start;
+            int[] subArr1 = mergeSort(arr, start, mid);
+            int[] subArr2 = mergeSort(arr, mid + 1, end);
             res = merge(subArr1, subArr2);
         }
         return res;
