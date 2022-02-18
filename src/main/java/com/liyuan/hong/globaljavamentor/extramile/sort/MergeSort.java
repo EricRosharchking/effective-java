@@ -1,10 +1,11 @@
-package com.liyuan.hong.globaljavamentor.extramile;
+package com.liyuan.hong.globaljavamentor.extramile.sort;
 
 import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort implements SortInterface{
 
-    public static int[] sort(int[] arr) {
+    @Override
+    public int[] sort(int[] arr) {
         int[] res = mergeSort(arr, 0, arr.length - 1);
         return res;
     }
@@ -25,8 +26,8 @@ public class MergeSort {
     }
 
     public static int[] merge(int[] arr1, int[] arr2) {
-        System.out.println(Arrays.toString(arr1));
-        System.out.println(Arrays.toString(arr2));
+//        System.out.println(Arrays.toString(arr1));
+//        System.out.println(Arrays.toString(arr2));
         int[] arr = new int[arr1.length + arr2.length];
         int i = 0, j = 0, k = 0;
         while (j < arr1.length && k < arr2.length) {

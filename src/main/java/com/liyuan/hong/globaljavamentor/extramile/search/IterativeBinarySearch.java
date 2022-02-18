@@ -1,4 +1,4 @@
-package com.liyuan.hong.globaljavamentor.extramile;
+package com.liyuan.hong.globaljavamentor.extramile.search;
 
 import java.util.Arrays;
 

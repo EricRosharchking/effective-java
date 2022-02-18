@@ -26,7 +26,7 @@ public class CacheServiceLFUImpl implements CacheService {
     private final Map<String, Item> cache;
     private final PriorityQueue<Occurrence> occurrences;
     private final Map<String, Integer> frequency;
-    private final int MAX_SIZE = 100000;
+    private int MAX_SIZE = 100000;
     private final Set<String> removedItems;
     private int evictions;
     private int puts;
@@ -38,6 +38,11 @@ public class CacheServiceLFUImpl implements CacheService {
         occurrences = new PriorityQueue<>(comparator);
         frequency = new ConcurrentHashMap<>();
         removedItems = new LinkedHashSet<>();
+    }
+
+    public CacheServiceLFUImpl(int size) {
+        this();
+        MAX_SIZE = size;
     }
 
     @Override

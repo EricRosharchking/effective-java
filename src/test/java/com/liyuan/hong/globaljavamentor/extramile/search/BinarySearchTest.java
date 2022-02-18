@@ -1,8 +1,5 @@
 package com.liyuan.hong.globaljavamentor.extramile.search;
 
-import com.liyuan.hong.globaljavamentor.extramile.IterativeBinarySearch;
-import com.liyuan.hong.globaljavamentor.extramile.RecursiveBinarySearch;
-import com.liyuan.hong.globaljavamentor.util.StopWatch;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
@@ -36,37 +33,41 @@ public abstract class BinarySearchTest {
         return data;
     }
 
-//    @Test
-//    public void testSetup() {
-//        System.out.println(number + ", " + arr);
-//        Assert.assertFalse(number != 0);
-//    }
-
     @Test
     public void test() {
-        Assert.assertNotNull(arr);
-        StopWatch watch = new StopWatch();
-        watch.start();
+//        Assert.assertNotNull(arr);
+//        StopWatch watch = new StopWatch();
+//        watch.start();
         int iter = IterativeBinarySearch.find(number, arr);
-        watch.stop();
-        long iterElapsedTime = watch.getElapsed();
-
-        watch.reset();
-        watch.start();
+//        watch.stop();
+//        long iterElapsedTime = watch.getElapsed();
+//
+//        watch.reset();
+//        watch.start();
         int recur = RecursiveBinarySearch.find(number, arr);
-        watch.stop();
-        long recurElapsedTime = watch.getElapsed();
-        System.out.println("iterativesearchTime:" + iterElapsedTime);
-        System.out.println("recursivesearchTime:" + recurElapsedTime);
-        Assert.assertEquals(iter, number);
-        Assert.assertEquals(recur, number);
+//        watch.stop();
+//        long recurElapsedTime = watch.getElapsed();
+//        System.out.println("iterativesearchTime:" + iterElapsedTime);
+//        System.out.println("recursivesearchTime:" + recurElapsedTime);
+        Assert.assertEquals(iter, dummySort(number, arr));
+        Assert.assertEquals(recur, dummySort(number, arr));
     }
 
     public static int[] getArr(int length) {
-        return Stream.iterate(0, x -> x = x + 1).limit(length).mapToInt(x -> x).toArray();
+        return Stream.iterate(0, x -> x = x + new Random().nextInt(2)).limit(length).mapToInt(x -> x).toArray();
     }
 
     public static int getNumber(int length) {
         return new Random().nextInt(length);
+    }
+
+    public static int dummySort(int number, int[] arr) {
+        int res = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                res = i;
+            }
+        }
+        return res;
     }
 }

@@ -1,14 +1,15 @@
-package com.liyuan.hong.globaljavamentor.extramile;
+package com.liyuan.hong.globaljavamentor.extramile.sort;
 
 import java.util.Arrays;
 
-public class InsertionSort {
+public class InsertionSort implements SortInterface{
 
 
-    public static void sort(int[] arr) {
+    @Override
+    public int[] sort(int[] arr) {
 
         if (arr == null || arr.length < 2) {
-            return;
+            return arr;
         }
         for (int index = 1; index < arr.length; index++) {
             for (int position = 0; position < index; position++) {
@@ -16,9 +17,10 @@ public class InsertionSort {
                     insert(arr, position, index);
                     position = index;
                 }
-                System.out.println(Arrays.toString(arr));
+//                System.out.println(Arrays.toString(arr));
             }
         }
+        return arr;
     }
 
     public static void insert(int[] arr, int position, int index) {

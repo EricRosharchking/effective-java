@@ -1,11 +1,9 @@
-package com.liyuan.hong.globaljavamentor.extramile;
+package com.liyuan.hong.globaljavamentor.extramile.search;
 
 public class RecursiveBinarySearch {
 
     public static int find(int number, int[] arr) {
-        int start = 0;
-        int end = arr.length - 1;
-        return binarySearch(number, arr, start, end);
+        return binarySearch(number, arr, 0, arr.length - 1);
     }
 
     public static int binarySearch(int number, int[] arr, int start, int end) {
