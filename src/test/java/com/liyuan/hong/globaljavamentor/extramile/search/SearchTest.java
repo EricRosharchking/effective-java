@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public abstract class BinarySearchTest {
+public abstract class SearchTest {
 
     @Parameterized.Parameter(0)
     public int[] arr;
@@ -17,7 +17,7 @@ public abstract class BinarySearchTest {
     @Parameterized.Parameter(1)
     public int number;
 
-    public BinarySearchTest() {
+    public SearchTest() {
     }
 
     @Parameterized.Parameters
